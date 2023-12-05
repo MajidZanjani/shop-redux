@@ -5,16 +5,16 @@ import { useSelector } from 'react-redux';
 export const Cart = () => {
   useTitle('Cart');
 
-  const products = useSelector((state) => state.cartState.cartList);
+  const cartList = useSelector((state) => state.cartState.cartList);
   const total = useSelector((state) => state.cartState.total);
 
   return (
     <main>
       <section className="cart">
         <h1>
-          Cart Items: {products.length} / ${total}
+          Cart Items: {cartList.length} / ${total}
         </h1>
-        {products.map((product) => (
+        {cartList.map((product) => (
           <CartCard key={product.id} product={product} />
         ))}
       </section>
